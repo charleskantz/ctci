@@ -1,7 +1,10 @@
 function isUnique(str) {
-  for (let i = 1; i < str.length; i++) {
-    if (str[i] === str[i - 1]) {
+  let seen = new Set();
+  for (let i = 0; i < str.length; i++) {
+    if (seen.has(str[i])) {
       return false;
+    } else {
+      seen.add(str[i]);
     }
   }
   return true;
@@ -12,3 +15,4 @@ console.log(isUnique('abcd'), true);
 console.log(isUnique('abccd'), false);
 console.log(isUnique('bhjjb'), false);
 console.log(isUnique('mdjq'), true);
+console.log(isUnique('akeioazm'), false);
